@@ -10,7 +10,7 @@ JDK 17 o 21, MySQL Server 8.0, Maven, NetBeans o IntelliJ. Internet para la prim
 
 Abra `sql/backup_inicial_s6.sql` en MySQL Workbench y ejecútelo. Crea los esquemas `sistemas_transaccionales_s6` y `sistemas_transaccionales_s6_destino`. Es repetible: no reinicia saldos ya modificados.
 
-`sql/backup_resultados_s6.sql` es un respaldo mysqldump de los dos esquemas después de las pruebas: saldos 850/650, eventos de mensajería y caché, y seis operaciones Storm correspondientes a dos ejecuciones de tres eventos. La segunda comprobó además la finalización de la JVM. Úselo en un entorno de práctica: restaura las tablas de esos dos esquemas. Para reproducir exactamente 1000/500, use los datos iniciales en esquemas nuevos. Cada ejecución exitosa de 2PC vuelve a transferir 150; no suponga que ejecutar `all` deja siempre 850/650.
+El paquete complementario local del taller incluye `sql/backup_resultados_s6.sql`, un respaldo mysqldump de los dos esquemas después de las pruebas: saldos 850/650, eventos de mensajería y caché, y seis operaciones Storm correspondientes a dos ejecuciones de tres eventos. La segunda comprobó además la finalización de la JVM. Este respaldo no se publica en GitHub. Úselo en un entorno de práctica: restaura las tablas de esos dos esquemas. Para reproducir exactamente 1000/500, use los datos iniciales en esquemas nuevos. Cada ejecución exitosa de 2PC vuelve a transferir 150; no suponga que ejecutar `all` deja siempre 850/650.
 
 ## Configuración
 
@@ -71,11 +71,11 @@ XA RECOVER;
 - `DbConfig.java`: configuración y consultas JDBC.
 - `Main.java`: menú y selección por argumentos.
 - `sql/backup_inicial_s6.sql`: estructura y datos iniciales reproducibles.
-- `sql/backup_resultados_s6.sql`: respaldo real posterior a pruebas.
-- `docs/`: capturas de los registros reales y diagramas del informe.
+- `sql/backup_resultados_s6.sql`: respaldo real posterior a pruebas, incluido solo en el paquete local.
+- `docs/`: capturas de los registros reales y diagramas del informe, incluidos solo en el paquete local.
 
 Las evidencias muestran ejecución mediante Java y Maven. Las capturas de registros se presentan en una vista HTML y no se hacen pasar por capturas del IDE. Si el docente exige pantallas específicas de NetBeans, ejecute los cuatro ejercicios allí y capture la salida y las consultas en Workbench.
 
 Repositorio público: https://github.com/carlosapalpo/sistemas-transaccionales-s6-uniminuto
 
-El repositorio incluye el código completo, las instrucciones y los respaldos de MySQL. Puede descargarse con Code > Download ZIP o clonarse con `git clone https://github.com/carlosapalpo/sistemas-transaccionales-s6-uniminuto.git`.
+El repositorio incluye el código completo, las instrucciones y el script SQL con estructura y datos ficticios de ejemplo. El respaldo posterior a las pruebas y las evidencias se conservan únicamente en el ZIP local del taller. El código público puede descargarse con Code > Download ZIP o clonarse con `git clone https://github.com/carlosapalpo/sistemas-transaccionales-s6-uniminuto.git`.
